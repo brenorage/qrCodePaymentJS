@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta name="generator" content="Bluefish 2.2.6" >
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="expires" content="0">
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<script src="js/botao.js"></script>
+<script src="js/qrcode.js"></script>
+<body>
+<div class="col-md-3">
+	<ul class="nav nav-pills nav-stacked">
+		<li class="active"><a href="#">Perfil</a></li>	
+		<li><a href="#">Ultimas compras</a></li>
+		<li><a href="#">Nova compra</a></li>
+		<li><a href="#">Sair</a></li>
+	</ul>
+</div>
+<div class="container">
+<div class="col-md-6">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Produto</th>
+			<th>Quantidade</th>		
+		</tr>
+	</thead>
+	<tbody>
+		<tr>		
+			<td> <button class="btn btn-primary" id="Refrigerante" onclick="botao('textView')">Refrigerante</button></td>
+			<td> <p id="textView"></p>	</td>
+		</tr>
+		<tr>
+			<td><button class="btn btn-primary" id="Comida" onclick="botao('textView1')">Comida</button> </td>
+			<td> <p id="textView1"></p> </td>
+		</tr>
+		<tr>
+			<td><button class="btn btn-primary" id="Confirmar" onclick="confirmGenerate()">Confirmar</button> </td>
+			<td> <p id="textViewResult"></p> </td>
+		</tr>
+	</tbody>
+</table>
+<h2>Seu QR Code</h2>
+  <div class="panel panel-default">
+    <div class="panel-body" id="qrCodeView"></div>
+  </div>
+</div>
+</div>
+</body>
+</html>

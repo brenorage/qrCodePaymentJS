@@ -1,0 +1,33 @@
+src="qrcode.js";
+var count_0 = 0;
+var count_1 = 0;
+var resultRefri = 0;
+var resultComida = 0;
+
+function botao(textView) {
+	switch(textView) {
+		case 'textView': 
+			count_0++;
+			document.getElementById(textView).innerHTML = count_0;
+			resultRefri = count_0*4.50;
+			break;
+		case 'textView1':
+			count_1++;	
+			document.getElementById(textView).innerHTML = count_1;
+			resultComida = count_1*10;
+			break;
+	}
+}
+
+function generateQrCode() {
+	var textQRCode = resultRefri + resultComida;
+	document.getElementById('textViewResult').innerHTML = textQRCode;
+	createQRCode(textQRCode, 'qrCodeView', 8);
+}
+
+function createQRCode(text, containerId, typeNumber) {
+	var qr = qrcode(typeNumber || 4,'M'); 
+	qr.addData(text);
+	qr.make();
+	document.getElementById(containerId).innerHTML = qr.createImgTag();
+}

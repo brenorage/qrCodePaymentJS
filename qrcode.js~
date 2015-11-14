@@ -1,0 +1,7 @@
+function createQRCode(text, containerId, typeNumber) {
+	var qr = qrcode(typeNumber || 4,'M'); // errorCorrectLevel = M
+	qr.addData(text);
+	qr.make();
+	document.getElementById(containerId).innerHTML = qr.createImgTag();
+};
+createQRCode('http://www.toprated.com.br', 'exemplo1', 8);
