@@ -14,40 +14,33 @@
 <body>
 <div class="col-md-3">
 	<ul class="nav nav-pills nav-stacked">
-		<li class="active"><a href="#">Perfil</a></li>	
-		<li><a href="#">Ultimas compras</a></li>
-		<li><a href="#">Nova compra</a></li>
-		<li><a href="#">Sair</a></li>
+		<li><a id="addProducts">Adicionar produtos</a></li>	
+		<li><button class="btn btn-link" id="generateQR" onclick="clearScreen('generateQrCode')">Gerar Qr Code</button></li>
+		<li><a id="selectProducts">Gerenciar Cardapio</a></li>
+		<li><a id="logout">Sair</a></li>
 	</ul>
 </div>
 <div class="container">
-<div class="col-md-6">
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Produto</th>
-			<th>Quantidade</th>		
-		</tr>
-	</thead>
-	<tbody>
-		<tr>		
-			<td> <button class="btn btn-primary" id="Refrigerante" onclick="botao('textView')">Refrigerante</button></td>
-			<td> <p id="textView"></p>	</td>
-		</tr>
-		<tr>
-			<td><button class="btn btn-primary" id="Comida" onclick="botao('textView1')">Comida</button> </td>
-			<td> <p id="textView1"></p> </td>
-		</tr>
-		<tr>
-			<td><button class="btn btn-primary" id="Confirmar" onclick="generateQrCode()">Confirmar</button> </td>
-			<td> <p id="textViewResult"></p> </td>
-		</tr>
-	</tbody>
-</table>
-<h2>Seu QR Code</h2>
-  <div class="panel panel-default">
-    <div class="panel-body" id="qrCodeView"></div>
+<div class="col-md-8" id="content">
+<form class="form-inline" role="form" action="php/insert.php" id="addProductsContainer" >
+  <div class="form-group">
+    <label for="text">Tipo:</label>
+    <input type="text" class="form-control" value="tipo">
   </div>
+  <div class="form-group">
+    <label for="text">Preço:</label>
+    <input type="text" class="form-control" value="preco">
+  </div>
+  <button type="submit" class="btn btn-default">Confirmar</button>
+</form>
+<div id="generateQrCode" style="display: none">
+<input type="text" id="url">Digite a url do seu cardapio</input>
+<input type="button" onclick="generate()" value="Gerar"></input>
+<h2>Seu QR Code</h2>
+<div class="panel panel-default">
+<div class="panel-body" id="qrCodeView"></div>	
+</div>
+</div>
 </div>
 </div>
 </body>

@@ -19,24 +19,30 @@ function botao(textView) {
 }
 
 function generateQrCode() {
-	var textQRCode;
+	var textQRCode = '';
 	
 	if (resultRefri != null) {
-		textQRCode = "Refrigerante = " + count_0 + " " + resultRefri;
-	}
+		
+		textQRCode += 'Refrigerante:' + count_0 +'price!4.5' + '\n';
+		}	
 	if (resultComida != null) {
-		textQRCode = textQRCode + "Comida = " + count_1 + " " + resultComida;	
+		textQRCode += 'Comida:' + count_1 +'price!10' + '\n';
 	}
 	else {
 		textQRCode = null;	
 	}
+	var resultPrice = resultComida+resultRefri;
+	
+	textQRCode += 'price!'+resultPrice;
+	
+	document.getElementById('textViewResult1').innerHTML = textQRCode;
 	createQRCode(textQRCode, 'qrCodeView', 16);
 }
 
-function clearAll() {
-	document.getElementById('textView').innerHTML = "";
-	document.getElementById('textView1').innerHTML = "";
-	document.getElementById('qrCodeView').innerHTML = "";
+function clearAll(textView) {
+	count_0 = 0;
+	count_1 = 0;
+	document.getElementById(textView).innerHTML = "";
 }
 
 function confirmGenerate() {
@@ -49,3 +55,20 @@ function createQRCode(text, containerId, typeNumber) {
 	qr.make();
 	document.getElementById(containerId).innerHTML = qr.createImgTag();
 }
+
+function clearScreen() {
+	document.getElementById('addProducts').;
+	var display = document.getElementById(divViewShow).style.display;
+    if(display == "none")
+        document.getElementById(divViewShow).style.display = 'block';
+    else
+        document.getElementById(divViewShow).style.display = 'none';
+	}
+	function generate() {
+		var url = document.getElementById('url').value;
+		createQRCode(url, 'qrCodeView', 16);
+	}
+	
+
+
+
